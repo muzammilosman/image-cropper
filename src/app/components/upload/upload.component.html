@@ -1,0 +1,22 @@
+<input type="file" (change)="getImagePreview($event)" />
+
+<div *ngIf="imagePreview" class="cropper-image">
+    <app-cropper [imagePreview]="imagePreview" [cropDimension]="dimensions[0]" (croppedImage)="cropPreview($event,0)"></app-cropper>
+</div>
+
+<div *ngIf="imagePreview" class="cropper-image">
+    <app-cropper [imagePreview]="imagePreview" [cropDimension]="dimensions[1]" (croppedImage)="cropPreview($event,1)"></app-cropper>
+</div>
+
+<div *ngIf="imagePreview" class="cropper-image">
+    <app-cropper [imagePreview]="imagePreview" [cropDimension]="dimensions[2]" (croppedImage)="cropPreview($event,2)"></app-cropper>
+</div>
+
+<div *ngIf="imagePreview" class="cropper-image">
+    <app-cropper [imagePreview]="imagePreview" [cropDimension]="dimensions[3]" (croppedImage)="cropPreview($event,3)"></app-cropper>
+</div>
+
+
+<div class="preview-btn" *ngIf="imagePreview">
+        <button (click)="submitPreview()">PREVIEW</button>
+</div>
