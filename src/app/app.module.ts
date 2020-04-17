@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
@@ -10,10 +11,12 @@ import { AppComponent } from './app.component';
 import { CropperComponent } from './components/cropper/cropper.component';
 import { PreviewComponent } from './components/preview/preview.component';
 import { UploadComponent } from './components/upload/upload.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 const appRoutes: Routes = [
   {path: '', component: UploadComponent},
-  {path: 'preview', component: PreviewComponent }
+  {path: 'preview', component: PreviewComponent },
+  {path: 'gallery', component: GalleryComponent}
 ];
 
 @NgModule({
@@ -21,7 +24,8 @@ const appRoutes: Routes = [
     AppComponent,
     CropperComponent,
     PreviewComponent,
-    UploadComponent
+    UploadComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +33,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     Ng2ImgMaxModule,
     ImageCropperModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

@@ -6,3 +6,7 @@
 .preview-btn{
     position: relative;
 }
+
+.action-buttons{
+    display: flex;
+}
