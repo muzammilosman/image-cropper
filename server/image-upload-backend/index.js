@@ -11,12 +11,22 @@ const app = express()
 
 // app.use(express)
 app.use(bodyParser.json())
-app.use(cors())
+
+var originsWhitelist = ['http://localhost:4200'];
+var corsOptions = {
+    origin: function(origin, callback){
+          var isWhitelisted = originsWhitelist.indexOf(origin) !== -1;
+          callback(null, isWhitelisted);
+    },
+    credentials:false
+}
+
+app.use(cors(corsOptions))
 app.use('/uploads',express.static('uploads'))
 
-app.post('/upload', uploads.single('cropImage'),(req, res) => {
+app.post('/upload', uploads.array('cropImage',4),(req, res) => {
     
-    console.log("Uploaded file:", req.file)
+    console.log("Uploaded file:", req.files)
     res.json({
         success: true,
         files: req.files
@@ -45,6 +55,6 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
-app.listen(8080, () => {
-    console.log('Server started on port:', 8080)
+app.listen(3000, () => {
+    console.log('Server started on port:', 3000)
 })

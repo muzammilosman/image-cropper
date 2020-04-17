@@ -21,9 +21,7 @@ export class PreviewComponent implements OnInit {
   }
 
   uploadImages() {
-    this.uploadService.uploadImages(this.blobImages).subscribe((data) => {
-      console.log('Response from api:', data);
-    });
+    this.uploadService.uploadImages(this.blobImages);
   }
 
   convertFile() {

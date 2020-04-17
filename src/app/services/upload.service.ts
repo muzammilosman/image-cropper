@@ -22,14 +22,19 @@ export class UploadService {
 
   uploadImages(images) {
     const fileData = new FormData();
-    fileData.append('cropImage', images[0]);
+
+    for (let i = 0; i < 4; i++) {
+      fileData.append('cropImage', images[i]);
+    }
+    console.log(fileData.getAll('cropImage'));
     const httpOptions = {
-      headers: {
-        'Content-Type':  'multipart/form-data',
+      headers: new HttpHeaders({
         'Access-Control-Allow-Origin': '*'
-        }
+      })
     };
-    return this.httpClient.post('localhost:3000/api/upload', fileData);
+    this.httpClient.post('http://localhost:3000/upload', fileData, httpOptions).subscribe(mes => {
+      console.log('Upload succeeded:', mes);
+    });
     // return this.httpClient.get('localhost:8080/sample');
   }
 
