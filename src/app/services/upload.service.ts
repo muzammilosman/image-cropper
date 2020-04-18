@@ -20,23 +20,25 @@ export class UploadService {
     this.currentMessage.subscribe(message => console.log('subscription success:', message));
   }
 
+  getImages() {
+    console.log('Fun workin');
+    return this.httpClient.get('http://localhost:3000/gallery');
+  }
+
   uploadImages(images) {
     const fileData = new FormData();
 
     for (let i = 0; i < 4; i++) {
       fileData.append('cropImage', images[i]);
     }
-    console.log(fileData.getAll('cropImage'));
     const httpOptions = {
       headers: new HttpHeaders({
         'Access-Control-Allow-Origin': '*'
       })
     };
-    this.httpClient.post('http://localhost:3000/upload', fileData, httpOptions).subscribe(mes => {
-      console.log('Upload succeeded:', mes);
-    });
-    // return this.httpClient.get('localhost:8080/sample');
+    return this.httpClient.post('http://localhost:3000/upload', fileData, httpOptions)
   }
+
 
   dataURItoBlob(dataURI) {
     const binary = atob(dataURI.split(',')[1]);

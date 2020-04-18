@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { UploadService } from '../../services/upload.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-preview',
@@ -11,7 +13,8 @@ export class PreviewComponent implements OnInit {
   previewImages: any;
   blobImages: any = [];
   imagesName = ['horizontal.jpg', 'vertical.jpg', 'small.jpg', 'gallery.jpg'];
-  constructor(private uploadService: UploadService) { }
+  dimensionNames = ['Horizontal (755 x 450)', 'Vertical (365 x 450)', 'Horizontal Small (365 x 212)', 'Gallery (380 x 380)'];
+  constructor(private uploadService: UploadService, private router: Router) { }
 
   ngOnInit() {
     this.uploadService.currentMessage.subscribe(message => {
@@ -21,7 +24,10 @@ export class PreviewComponent implements OnInit {
   }
 
   uploadImages() {
-    this.uploadService.uploadImages(this.blobImages);
+    this.uploadService.uploadImages(this.blobImages).subscribe(res => {
+      alert('Cropped Images successfully uploaded');
+      this.router.navigate(['/gallery']);
+    });
   }
 
   convertFile() {

@@ -1,25 +1,46 @@
 <div class="action-buttons">
-    <input type="file" (change)="getImagePreview($event)" />
+    <div class="action-btn">
+        <input type="file" (change)="getImagePreview($event)" />
+    </div>
 
-    <div class="preview-btn" *ngIf="imagePreview">
+    <div class="action-btn preview-btn" *ngIf="imagePreview">
         <button (click)="submitPreview()">PREVIEW</button>
     </div>
 </div>
 
 <div *ngIf="imagePreview" class="cropper-image">
+    <div class="cropper-title">
+        1. Horizontal (755 x 450)
+    </div>
     <app-cropper [imagePreview]="imagePreview" [cropDimension]="dimensions[0]" (croppedImage)="cropPreview($event,0)"></app-cropper>
 </div>
 
 <div *ngIf="imagePreview" class="cropper-image">
+    <div class="cropper-title">
+        2. Vertical (365 x 450)
+    </div>
     <app-cropper [imagePreview]="imagePreview" [cropDimension]="dimensions[1]" (croppedImage)="cropPreview($event,1)"></app-cropper>
 </div>
 
 <div *ngIf="imagePreview" class="cropper-image">
+    <div class="cropper-title">
+        3. Horizontal Small (365 x 212)
+    </div>
     <app-cropper [imagePreview]="imagePreview" [cropDimension]="dimensions[2]" (croppedImage)="cropPreview($event,2)"></app-cropper>
 </div>
 
 <div *ngIf="imagePreview" class="cropper-image">
+    <div class="cropper-title">
+        4. Gallery (380 x 380)
+    </div>
     <app-cropper [imagePreview]="imagePreview" [cropDimension]="dimensions[3]" (croppedImage)="cropPreview($event,3)"></app-cropper>
+</div>
+
+
+<div class="action-buttons">
+    <div class="action-btn preview-btn" *ngIf="imagePreview">
+        <button (click)="submitPreview()">PREVIEW</button>
+    </div>
 </div>
 
 

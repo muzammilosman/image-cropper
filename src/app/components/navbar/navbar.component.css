@@ -1,0 +1,19 @@
+.nav-bar{
+    display: flex;
+    height: 45px;
+}
+
+.nav-bar-option{
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.active-link{
+    color: aliceblue;
+    background: black;
+}

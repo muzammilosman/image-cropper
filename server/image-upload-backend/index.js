@@ -4,7 +4,7 @@ var cors = require('cors')
 const multer = require('multer')
 const fs = require('fs-extra')
 var uploads = multer({
-    dest: 'uploads/'
+    dest: '../../src/assets/imguploads'
 })
 
 const app = express()
@@ -38,7 +38,7 @@ app.post('/sample', (req, res) => {
 })
 
 app.get('/gallery',(req, res) => {
-    fs.readdir(('uploads'),(err, data) => {
+    fs.readdir(('../../src/assets/imguploads'),(err,data) => {
         if(err) {
             console.log(err)
         } else {
@@ -48,7 +48,6 @@ app.get('/gallery',(req, res) => {
         }
         
     })
-    res.send("Check console")
 })
 
 app.get('/', function (req, res) {

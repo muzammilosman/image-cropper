@@ -1,6 +1,9 @@
 .cropper-image{
-    width: 1024px;
-    height: 1024px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .preview-btn{
@@ -9,4 +12,17 @@
 
 .action-buttons{
     display: flex;
+    padding: 20px;
+}
+
+.action-btn{
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.cropper-title{
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
 }

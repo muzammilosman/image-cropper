@@ -36,14 +36,24 @@ export class UploadComponent implements OnInit {
   }
 
   ngOnInit() {
-    
   }
 
 getImagePreview(event) {
-    const reader: FileReader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]);
-    reader.onload = () => {
-      this.imagePreview = reader.result;
+    const Img = new Image();
+    Img.src = URL.createObjectURL(event.target.files[0]);
+
+    Img.onload = (e: any) => {
+      const height = e.path[0].height;
+      const width = e.path[0].width;
+      if (height === 1024) {
+        const reader: FileReader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+        reader.onload = () => {
+          this.imagePreview = reader.result;
+        };
+      } else {
+        alert("please upload an image with the right dimension")
+      }
     };
 }
 

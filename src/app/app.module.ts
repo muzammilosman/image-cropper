@@ -12,9 +12,10 @@ import { CropperComponent } from './components/cropper/cropper.component';
 import { PreviewComponent } from './components/preview/preview.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 const appRoutes: Routes = [
-  {path: '', component: UploadComponent},
+  {path: 'upload', component: UploadComponent},
   {path: 'preview', component: PreviewComponent },
   {path: 'gallery', component: GalleryComponent}
 ];
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     CropperComponent,
     PreviewComponent,
     UploadComponent,
-    GalleryComponent
+    GalleryComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,14 +1,24 @@
 
 <div class="preview-header">
     <h2>Preview</h2>
+
+    <div class="upload-btn">
+        <button (click)="convertFile()">UPLOAD</button>
+    </div>
+
 </div>
 
-<div class="upload-btn">
-    <button (click)="convertFile()">UPLOAD</button>
-</div>
+
 
 <div class="preview-container">
-    <div class="preview" *ngFor="let item of previewImages" >
+    <div class="preview" *ngFor="let item of previewImages;  index as i;" >
+        <div class="preview-image-header">{{ dimensionNames[i] }}</div>
         <img [src]="item" crossorigin>
     </div>  
+</div>
+
+<div class="preview-header">
+    <div class="upload-btn">
+        <button (click)="convertFile()">UPLOAD</button>
+    </div>
 </div>
