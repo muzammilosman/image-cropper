@@ -13,6 +13,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 const appRoutes: Routes = [
+  {path: '', redirectTo: 'upload', pathMatch: 'full'},
   {path: 'upload', component: UploadComponent},
   {path: 'preview', component: PreviewComponent },
   {path: 'gallery', component: GalleryComponent}

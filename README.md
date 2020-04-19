@@ -70,10 +70,10 @@ The cropped images are uploaded to a local folder `server/image-upload-backend/u
 The server-side application can be found in `server/image-upload-backend/index.js`. Navigate to the directory and run `node index.js` to start the server in port 3000.
 
 #### Requests
-   | Route   |      Type      |  Description |
-    |----------|:-------------:|------|
-    | `/upload` |  POST | Uploads the images in the request body to `server/image-upload-backend/uploads` |
-    | `/gallery` |    GET  |   Returns the files in the folder `server/image-upload-backend/uploads`  |
+| Route   |      Type      |  Description |
+|----------|:-------------:|------|
+| `/upload` |  POST | Uploads the images in the request body to `server/image-upload-backend/uploads` |
+| `/gallery` |    GET  |   Returns the files in the folder `server/image-upload-backend/uploads`  |
 
 
 ## Sample
