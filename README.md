@@ -7,7 +7,7 @@ Image cropper is an application built using Angular 8 on the client side and Exp
 Clone the repository and install all the dependencies in the client-side by running the command `npm i`. Run `ng serve` for an angular dev server. Navigate to `http://localhost:4200/`. 
 
 ```sh   
-$ cd GUI-builder
+$ cd image-upload
 $ npm i
 $ ng serve
 ```
