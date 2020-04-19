@@ -1,5 +1,9 @@
+<div class="gallery-header">
+    <h2>GALLERY</h2>
+</div>
+
 <div class="gallery" *ngIf="imgLoaded">
     <div class="gallery-img" *ngFor="let item of galleryImages.files">
-        <img src='../../../assets/imguploads/{{ item }}'>
+        <img src='{{ item }}'>
     </div>
 </div>

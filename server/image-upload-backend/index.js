@@ -4,13 +4,14 @@ var cors = require('cors')
 const multer = require('multer')
 const fs = require('fs-extra')
 var uploads = multer({
-    dest: '../../src/assets/imguploads'
+    dest: './uploads'
 })
 
 const app = express()
 
 // app.use(express)
 app.use(bodyParser.json())
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 var originsWhitelist = ['http://localhost:4200'];
 var corsOptions = {
@@ -22,7 +23,6 @@ var corsOptions = {
 }
 
 app.use(cors(corsOptions))
-app.use('/uploads',express.static('uploads'))
 
 app.post('/upload', uploads.array('cropImage',4),(req, res) => {
     
@@ -33,25 +33,22 @@ app.post('/upload', uploads.array('cropImage',4),(req, res) => {
     })
 })
 
-app.post('/sample', (req, res) => {
-    console.log("Body sent:", req.body)
-})
 
 app.get('/gallery',(req, res) => {
-    fs.readdir(('../../src/assets/imguploads'),(err,data) => {
+    fs.readdir(('./uploads'),(err,data) => {
         if(err) {
             console.log(err)
         } else {
+            let filePath = []
+            data.forEach(el => {
+                filePath.push('http://localhost:3000/uploads/' + el)
+            })
             res.json({
-                files: data
+                files: filePath
             })
         }
         
     })
-})
-
-app.get('/', function (req, res) {
-  res.send('Hello World!')
 })
 
 app.listen(3000, () => {

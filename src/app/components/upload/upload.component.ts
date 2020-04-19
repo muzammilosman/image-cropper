@@ -45,14 +45,14 @@ getImagePreview(event) {
     Img.onload = (e: any) => {
       const height = e.path[0].height;
       const width = e.path[0].width;
-      if (height === 1024) {
+      if (height === 1024 && width === 1024) {
         const reader: FileReader = new FileReader();
         reader.readAsDataURL(event.target.files[0]);
         reader.onload = () => {
           this.imagePreview = reader.result;
         };
       } else {
-        alert("please upload an image with the right dimension")
+        alert('please upload an image with the right dimension');
       }
     };
 }
@@ -62,7 +62,6 @@ cropPreview(event, i) {
 }
 
 submitPreview() {
-    console.log('Preview images', this.imagesForPreview);
     this.uploadService.updatePreview(this.imagesForPreview);
     this.router.navigate(['/preview']);
 }

@@ -1,0 +1,13 @@
+.gallery-header{
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.gallery, .gallery-header{
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}

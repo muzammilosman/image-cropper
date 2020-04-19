@@ -16,10 +16,6 @@ export class UploadService {
     this.messageSource.next(images);
   }
 
-  subscribeMessage() {
-    this.currentMessage.subscribe(message => console.log('subscription success:', message));
-  }
-
   getImages() {
     console.log('Fun workin');
     return this.httpClient.get('http://localhost:3000/gallery');

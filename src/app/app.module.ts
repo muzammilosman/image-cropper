@@ -4,8 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Ng2ImgMaxModule } from 'ng2-img-max';
-import { ImageCropperModule } from 'ngx-image-cropper';
 
 import { AppComponent } from './app.component';
 import { CropperComponent } from './components/cropper/cropper.component';
@@ -33,8 +31,6 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2ImgMaxModule,
-    ImageCropperModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],

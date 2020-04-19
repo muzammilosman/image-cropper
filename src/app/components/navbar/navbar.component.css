@@ -1,6 +1,7 @@
 .nav-bar{
     display: flex;
-    height: 45px;
+    height: 80px;
+    border-bottom: groove;
 }
 
 .nav-bar-option{
